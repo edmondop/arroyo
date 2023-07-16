@@ -21,9 +21,9 @@ jobs:
           # - linux/arm64
         image_type:
           - worker
-          - services
-          - compiler
-          - single
+          # - services
+          # - compiler
+          # - single
         include:
           - platform: linux/amd64
             mold_arch: x86_64
@@ -37,12 +37,12 @@ jobs:
           #   runs_on: buildjet-8vcpu-ubuntu-2204-arm
           - image_type: worker
             dockerfile: docker/cluster/worker/Dockerfile
-          - image_type: services
-            dockerfile: docker/cluster/services/Dockerfile
-          - image_type: compiler
-            dockerfile: docker/cluster/compiler/Dockerfile
-          - image_type: single
-            dockerfile: docker/single/Dockerfile
+          # - image_type: services
+          #   dockerfile: docker/cluster/services/Dockerfile
+          # - image_type: compiler
+          #   dockerfile: docker/cluster/compiler/Dockerfile
+          # - image_type: single
+          #   dockerfile: docker/single/Dockerfile
     runs-on: ${{ matrix.runs_on }}
     steps:
       # Get the repository's code
@@ -154,6 +154,8 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
 
       - name: Set up Helm
         uses: azure/setup-helm@v3.5
@@ -173,7 +175,10 @@ jobs:
           version: v3.8.0
 
       - name: Lint chart
-        run: ct lint --all
+        run: |
+          pwd
+          ls
+          ct lint --all 
 
       - name: Create kind cluster
         uses: helm/kind-action@v1.4.0
