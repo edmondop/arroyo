@@ -29,7 +29,7 @@ jobs:
             mold_arch: x86_64
             proto_arch: x86_64
             prom_arch: amd64
-            runs_on: buildjet-8vcpu-ubuntu-2204
+            runs_on: ubuntu-20.04
           # - platform: linux/arm64
           #   mold_arch: aarch64
           #   proto_arch: aarch_64
