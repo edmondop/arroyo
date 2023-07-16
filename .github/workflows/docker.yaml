@@ -18,7 +18,7 @@ jobs:
       matrix:
         platform:
           - linux/amd64
-          - linux/arm64
+          # - linux/arm64
         image_type:
           - worker
           - services
@@ -30,11 +30,11 @@ jobs:
             proto_arch: x86_64
             prom_arch: amd64
             runs_on: buildjet-8vcpu-ubuntu-2204
-          - platform: linux/arm64
-            mold_arch: aarch64
-            proto_arch: aarch_64
-            prom_arch: arm64
-            runs_on: buildjet-8vcpu-ubuntu-2204-arm
+          # - platform: linux/arm64
+          #   mold_arch: aarch64
+          #   proto_arch: aarch_64
+          #   prom_arch: arm64
+          #   runs_on: buildjet-8vcpu-ubuntu-2204-arm
           - image_type: worker
             dockerfile: docker/cluster/worker/Dockerfile
           - image_type: services
