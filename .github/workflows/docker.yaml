@@ -175,13 +175,10 @@ jobs:
           version: v3.8.0
 
       - name: Lint chart
-        run: |
-          pwd
-          ls
-          ct lint --all 
+        run: ct lint --all 
 
       - name: Create kind cluster
         uses: helm/kind-action@v1.4.0
           
       - name: Run chart-testing (install)
-        run: ct install --charts ./ --helm-extra-set-args="--set=controller.image.tag=tuamamma 1000s"
+        run: ct install --charts ./ --config ct.yaml --helm-extra-set-args="--set=controller.image.tag=tuamamma 1000s"
