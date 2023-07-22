@@ -182,10 +182,4 @@ jobs:
 
       - name: Create kind cluster
         uses: helm/kind-action@v1.4.0
-
-    74873ac07521
-
-    docker run -e OPENAI_API_KEY="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" -e VELLUM_API_KEY="bX6OEspM.EyX6vvFzUUxvQA8rFbWHzBR74cXkzIcP" -w /opt/bio-codegen -d -p 80:8000 ghcr.io/edmondop/bio-codegen:backend make run
-
-
-docker run -e OPENAI_API_KEY="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" -e VELLUM_API_KEY="bX6OEspM.EyX6vvFzUUxvQA8rFbWHzBR74cXkzIcP"  -d -p 80:8000 ghcr.io/edmondop/bio-codegen:backend "cd /opt/bio-codegen &&  make run"
+          
