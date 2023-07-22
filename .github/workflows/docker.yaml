@@ -144,7 +144,7 @@ jobs:
           docker manifest annotate ${IMAGE}:tip ${IMAGE}:amd64-${TAG} --arch amd64
           docker manifest push     ${IMAGE}:tip
   helm:
-    needs: build
+    # needs: build
     runs-on: ubuntu-latest
     if:  ${{ github.event_name == 'pull_request' }}
     defaults:
