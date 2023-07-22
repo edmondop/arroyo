@@ -149,7 +149,7 @@ jobs:
     if:  ${{ github.event_name == 'pull_request' }}
     defaults:
       run:
-        working-directory: k8s
+        working-directory: k8s/arroyo
     
     steps:
       - name: Checkout
